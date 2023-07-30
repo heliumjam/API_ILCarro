@@ -1,6 +1,7 @@
 package okhttpapi;
 
 import com.google.gson.Gson;
+import com.jayway.restassured.RestAssured;
 import dto.UserDTO;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -15,14 +16,19 @@ public class BaseAPI {
 
     String token;
 
-    public String getToken() {
-        return token;
-    }
+//    public String getToken() {
+//        return token;
+//    }
 
     public void setToken(UserDTO userDTO) {
         //  API call to get token for the user
         AuthenticationController authenticationController = new AuthenticationController();
         token = authenticationController.setTokenFromResponse(userDTO);
         System.out.println("token from base api " + token);
+    }
+
+    public  void setPath(){
+        RestAssured.baseURI = baseUrl;
+        RestAssured.basePath = "";
     }
 }
