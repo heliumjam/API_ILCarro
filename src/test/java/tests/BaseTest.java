@@ -17,6 +17,8 @@ public class BaseTest {
     CarController carcontroller = new CarController();
     RandomHelper randomHelper = new RandomHelper();
 
+    String serialNumber;
+
 
     @BeforeSuite
     public void start(){
